@@ -260,4 +260,4 @@ Enabled by default: true
 
 ## Version
 
-Generated on Wed Feb  5 11:49:28 UTC 2020 from [v0.0-186-g57518ed](https://github.com/mithro/verible/commit/57518ed568055eee52f484d6e7dd07ed7bc652d0)
+Generated on Wed Feb  5 11:50:10 UTC 2020 from [v0.0-186-g57518ed](https://github.com/mithro/verible/commit/57518ed568055eee52f484d6e7dd07ed7bc652d0)
