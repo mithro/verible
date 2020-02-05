@@ -42,4 +42,4 @@ See the [README file for further information.](README.md)
 
 ## Version
 
-Generated on Wed Feb  5 19:53:40 UTC 2020 from [v0.0-186-g82a737d](https://github.com/mithro/verible/commit/82a737d50efb23c8cd7d5c59524597d76eb82eb2)
+Generated on Wed Feb  5 19:54:06 UTC 2020 from [v0.0-186-g82a737d](https://github.com/mithro/verible/commit/82a737d50efb23c8cd7d5c59524597d76eb82eb2)
