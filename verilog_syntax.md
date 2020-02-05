@@ -50,4 +50,4 @@ verilog_syntax: usage: bazel-bin/verilog/tools/syntax/verilog_syntax [options] <
 
 ## Version
 
-Generated on 2020-02-05 21:14:21 +0100 from [v0.0-186-g1864551](https://github.com/mithro/verible/commit/1864551bd9408c521d4d326f48d9d4e91c3d749c)
+Generated on 2020-02-05 21:28:27 +0100 from [v0.0-186-gb541934](https://github.com/mithro/verible/commit/b5419342d042a49347d6a7154af0c78995190cf4)
