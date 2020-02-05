@@ -58,4 +58,4 @@ To pipe from stdin, use '-' as <file>.
 
 ## Version
 
-Generated on Wed Feb  5 10:56:36 UTC 2020 from [](https://github.com/mithro/verible/commit/1eb82456fa198e3ffa5c686b8f2c3fe139b3cb2c)
+Generated on Wed Feb  5 11:32:49 UTC 2020 from [v0.0-186-gdc34df5](https://github.com/mithro/verible/commit/dc34df57cdc02cdc4e78eb9cd5fe8924c498fe88)
