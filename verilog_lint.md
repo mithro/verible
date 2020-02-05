@@ -1,3 +1,6 @@
+---
+---
+
 # `verilog_lint`
 
 Tool for formatting Verilog and SystemVerilog code. Part of the verible tool
@@ -260,4 +263,4 @@ Enabled by default: true
 
 ## Version
 
-Generated on Wed Feb  5 19:54:06 UTC 2020 from [v0.0-186-g82a737d](https://github.com/mithro/verible/commit/82a737d50efb23c8cd7d5c59524597d76eb82eb2)
+Generated on 2020-02-05 21:14:21 +0100 from [v0.0-186-g1864551](https://github.com/mithro/verible/commit/1864551bd9408c521d4d326f48d9d4e91c3d749c)
