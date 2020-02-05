@@ -1,12 +1,11 @@
-# `verilog_format`
+# `verilog_syntax`
 
-Tool for formatting Verilog and SystemVerilog code. Part of the verible tool
-suite.
+Tool for looking at the syntax of Verilog and SystemVerilog code. Part of the
+verible tool suite.
 
 ## Command line arguments
 ```
-verilog_format: usage: bazel-bin/verilog/tools/formatter/verilog_format [options] <file>
-To pipe from stdin, use '-' as <file>.
+verilog_syntax: usage: bazel-bin/verilog/tools/syntax/verilog_syntax [options] <file> [<file>...]
 
   Flags from external/com_google_absl/absl/flags/parse.cc:
     -flagfile (comma-separated list of files to load flags from); default: ;
@@ -37,25 +36,15 @@ To pipe from stdin, use '-' as <file>.
     -verilog_trace_parser (Trace verilog parser); default: false;
 
 
-  Flags from verilog/tools/formatter/verilog_format.cc:
-    -inplace (If true, overwrite the input file on successful conditions.);
+  Flags from verilog/tools/syntax/verilog_syntax.cc:
+    -printrawtokens (Prints all lexed tokens, including filtered ones.);
       default: false;
-    -lines (Specific lines to format, 1-based, comma-separated, inclusive N-M
-      ranges, N is short for N-N. By default, left unspecified, all lines are
-      enabled for formatting. (repeatable, cumulative)); default: ;
-    -max_search_states (Limits the number of search states explored during line
-      wrap optimization.); default: 100000;
-    -show_equally_optimal_wrappings (If true, print when multiple optimal
-      solutions are found (stderr), but continue to operate normally.);
-      default: false;
-    -show_largest_token_partitions (If > 0, print token partitioning and then
-      exit without formatting output.); default: 0;
-    -show_token_partition_tree (If true, print diagnostics after token
-      partitioning and then exit without formatting output.); default: false;
-    -stdin_name (When using '-' to read from stdin, this gives an alternate name
-      for diagnostic purposes. Otherwise this is ignored.); default: "<stdin>";
+    -printtokens (Prints all lexed and filtered tokens); default: false;
+    -printtree (Whether or not to print the tree); default: false;
+    -verifytree (Verifies that all tokens are parsed into tree, prints unmatched
+      tokens); default: false;
 ```
 
 ## Version
 
-Generated on Wed Feb  5 12:30:38 UTC 2020 from [v0.0-187-g0dda555](https://github.com/mithro/verible/commit/0dda555951f91e338eef95e43df96dd3c453a7f4)
+Generated on Wed Feb  5 12:30:37 UTC 2020 from [v0.0-187-g0dda555](https://github.com/mithro/verible/commit/0dda555951f91e338eef95e43df96dd3c453a7f4)
