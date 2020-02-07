@@ -263,4 +263,4 @@ Enabled by default: true
 
 ## Version
 
-Generated on 2020-02-05 21:28:27 +0100 from [v0.0-186-gb541934](https://github.com/mithro/verible/commit/b5419342d042a49347d6a7154af0c78995190cf4)
+Generated on 2020-02-07 15:00:26 -0600 from [v0.0-197-g855d768](https://github.com/mithro/verible/commit/855d768ce6cd5bddc18796d4a40ae8a0b5e63057)
