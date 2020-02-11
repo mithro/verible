@@ -135,6 +135,11 @@ Checks that every generate block statement is labeled. See [Style: generate-stat
 
 Enabled by default: true
 
+### interface-name-style
+Checks that `interface` names use lower_snake_case naming convention and end with '_if'. See [Style: interface-conventions].
+
+Enabled by default: false
+
 ### invalid-system-task-function
 Checks that no forbidden system tasks or functions are used. These consist of the following functions: `$psprintf`, `$random`, and `$dist_*`. Also non-LRM function `$srandom`. See [Verification-Style: forbidden-system-functions].
 
@@ -263,4 +268,4 @@ Enabled by default: true
 
 ## Version
 
-Generated on 2020-02-07 15:00:26 -0600 from [v0.0-197-g855d768](https://github.com/mithro/verible/commit/855d768ce6cd5bddc18796d4a40ae8a0b5e63057)
+Generated on 2020-02-11 14:19:16 -0800 from [v0.0-201-g18b1a72](https://github.com/mithro/verible/commit/18b1a72e53c3f89754e552ff32c94ef97ca6e608)
