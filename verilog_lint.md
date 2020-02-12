@@ -268,4 +268,4 @@ Enabled by default: true
 
 ## Version
 
-Generated on 2020-02-11 14:19:16 -0800 from [v0.0-201-g18b1a72](https://github.com/mithro/verible/commit/18b1a72e53c3f89754e552ff32c94ef97ca6e608)
+Generated on 2020-02-11 23:18:27 -0800 from [v0.0-201-g143e70b](https://github.com/mithro/verible/commit/143e70beedd6cb244e27d0b627e302953ec1b417)
