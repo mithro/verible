@@ -3,8 +3,13 @@
 
 # Verible
 
+<!--*
+freshness: { owner: 'fangism' reviewed: '2020-10-08' }
+*-->
+
 The Verible project's main mission is to parse SystemVerilog (IEEE 1800-2017)
-for a wide variety of applications.
+(as standardized in the [SV-LRM]) for a wide variety of applications, including
+developer tools.
 
 It was born out of a need to parse *un-preprocessed* source files, which is
 suitable for single-file applications like style-linting and formatting. In
@@ -14,7 +19,9 @@ real compilers and toolchains require.
 The spirit of the project is that no-one should ever have to develop a
 SystemVerilog parser for their own application, because developing a
 standard-compliant parser is an enormous task due to the syntactic complexity of
-the language.
+the language. Verible's parser is also regularly tested against an ever-growing
+suite of (tool-independent) language compliance tests at
+https://symbiflow.github.io/sv-tests/.
 
 A lesser (but notable) objective is that the language-agnostic components of
 Verible be usable for rapidly developing language support tools for other
@@ -25,15 +32,15 @@ See the [README file for further information.](README.md)
 
 ## Tools
 
- * [verilog_lint Info](verilog_lint.md)
- * [verilog_format Info](verilog_format.md)
- * [verilog_syntax Info](verilog_syntax.md)
+ * [verible-verilog-lint Info](verilog_lint.md)
+ * [verible-verilog-format Info](verilog_format.md)
+ * [verible-verilog-syntax Info](verilog_syntax.md)
 
 ## Information
 
- * [Code - https://github.com/mithro/verible](https://github.com/mithro/verible)
- * [Binaries - https://github.com/mithro/verible/releases](https://github.com/mithro/verible/releases)
- * [Bug Reports - https://github.com/mithro/verible/issues/new](https://github.com/mithro/verible/issues/new)
+ * [Code - https://github.com/google/verible](https://github.com/google/verible)
+ * [Binaries - https://github.com/google/verible/releases](https://github.com/google/verible/releases)
+ * [Bug Reports - https://github.com/google/verible/issues/new](https://github.com/google/verible/issues/new)
  * [Lint Rules](lint.md)
  * [Further Information](README.md)
 
@@ -45,4 +52,4 @@ See the [README file for further information.](README.md)
 
 ## Version
 
-Generated on 2020-02-11 23:18:27 -0800 from [v0.0-201-g143e70b](https://github.com/mithro/verible/commit/143e70beedd6cb244e27d0b627e302953ec1b417)
+Generated on 2020-11-17 16:53:20 -0800 from [c22c870](https://github.com/google/verible/commit/c22c8702aae814c9141ccdaa83f451b3a9f65532)

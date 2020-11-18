@@ -16,10 +16,20 @@ Checks that there are no occurrences of blocking assignment in sequential logic.
 
 Enabled by default: true
 
+### banned-declared-name-patterns
+Checks for banned declared name against set of unwanted patterns. See your project's style guidance regarding naming.
+
+Enabled by default: false
+
 ### case-missing-default
 Checks that a default case-item is always defined. See [Style: case-statements].
 
-Enabled by default: false
+Enabled by default: true
+
+### constraint-name-style
+Check that constraint names follow the lower_snake_case convention and end with _c. See [Style: constraints].
+
+Enabled by default: true
 
 ### create-object-name-match
 Checks that the 'name' argument of `type_id::create()` matches the name of the variable to which it is assigned. See [Verification-Style: naming].
@@ -34,7 +44,7 @@ Enabled by default: false
 ### enum-name-style
 Checks that `enum` names use lower_snake_case naming convention and end with '_t' or '_e'. See [Style: enumerations].
 
-Enabled by default: false
+Enabled by default: true
 
 ### explicit-function-lifetime
 Checks that every function declared outside of a class is declared with an explicit lifetime (static or automatic). See [Style: function-task-explicit-lifetime].
@@ -48,6 +58,8 @@ Enabled by default: true
 
 ### explicit-parameter-storage-type
 Checks that every `parameter` and `localparam` is declared with an explicit storage type. See [Style: constants].
+##### Parameters
+  * `exempt_type` (optional `string`. Default: empty)
 
 Enabled by default: true
 
@@ -59,7 +71,7 @@ Enabled by default: true
 ### forbid-consecutive-null-statements
 Checks that there are no occurrences of consecutive null statements like `;;`
 
-Enabled by default: false
+Enabled by default: true
 
 ### forbid-defparam
 Do not use defparam. See:[Style: defparam].
@@ -76,10 +88,15 @@ Checks that every generate block statement is labeled. See [Style: generate-stat
 
 Enabled by default: true
 
+### generate-label-prefix
+Checks that every generate block label starts with g_ or gen_. See [Style: generate-constructs].
+
+Enabled by default: false
+
 ### interface-name-style
 Checks that `interface` names use lower_snake_case naming convention and end with '_if'. See [Style: interface-conventions].
 
-Enabled by default: false
+Enabled by default: true
 
 ### invalid-system-task-function
 Checks that no forbidden system tasks or functions are used. These consist of the following functions: `$psprintf`, `$random`, and `$dist_*`. Also non-LRM function `$srandom`. See [Verification-Style: forbidden-system-functions].
@@ -87,12 +104,14 @@ Checks that no forbidden system tasks or functions are used. These consist of th
 Enabled by default: true
 
 ### line-length
-Checks that all lines do not exceed the maximum allowed length, currently set to 100 characters. See [Style: line-length].
+Checks that all lines do not exceed the maximum allowed length. See [Style: line-length].
+##### Parameters
+  * `length` Default: `100`
 
 Enabled by default: true
 
 ### macro-name-style
-Checks that every macro name follows ALL_CAPS naming convention. See [Style: defines].
+Checks that every macro name follows ALL_CAPS naming convention.  Exception: UVM-like macros.  See [Style: defines].
 
 Enabled by default: true
 
@@ -107,7 +126,10 @@ Checks that there are no begin-end blocks declared at the module level. See [Sty
 Enabled by default: true
 
 ### module-filename
-If a module is declared, checks that at least one module matches the first dot-delimited component of the file name.  See [Style: file-names].
+If a module is declared, checks that at least one module matches the first dot-delimited component of the file name. Depending on configuration, it is also allowed to replace underscore with dashes in filenames.  See [Style: file-names].
+##### Parameter
+ * `allow-dash-for-underscore` Default: `false`
+
 
 Enabled by default: true
 
@@ -131,13 +153,21 @@ Checks that there are no trailing spaces on any lines. See [Style: trailing-spac
 
 Enabled by default: true
 
+### numeric-format-string-style
+Checks that string literals with numeric format specifiers have proper prefixes for hex and bin values and no prefixes for decimal values.  See [Style: number-formatting].
+
+Enabled by default: false
+
 ### one-module-per-file
 Checks that at most one module is declared per file. See [Style: file-extensions].
 
 Enabled by default: false
 
 ### package-filename
-Checks that the package name matches the filename. See [Style: file-names].
+Checks that the package name matches the filename. Depending on configuration, it is also allowed to replace underscore with dashes in filenames.  See [Style: file-names].
+##### Parameter
+ * `allow-dash-for-underscore` Default: `false`
+
 
 Enabled by default: true
 
@@ -147,12 +177,26 @@ Checks that packed dimension ranges are declare in little-endian (decreasing) or
 Enabled by default: true
 
 ### parameter-name-style
-Checks that parameter names follow UpperCamelCase or ALL_CAPS naming convention and that localparam names follow UpperCamelCase naming convention. See [Style: constants].
+Checks that non-type parameter and localparam names follow at least one of the naming conventions from a choice of CamelCase and ALL_CAPS, ORed together with the pipe-symbol(|). Empty configuration: no style enforcement. See [Style: constants].
+##### Parameters
+ * `localparam_style` Default: `CamelCase`
+ * `parameter_style` Default: `CamelCase|ALL_CAPS`
+
 
 Enabled by default: true
 
+### parameter-type-name-style
+Checks that parameter type names follow the lower_snake_case naming convention and end with _t. See [Style: parametrized-objects].
+
+Enabled by default: false
+
 ### plusarg-assignment
 Checks that plusargs are always assigned a value, by ensuring that plusargs are never accessed using the `$test$plusargs` system task. See [Style: plusarg-value-assignment].
+
+Enabled by default: true
+
+### positive-meaning-parameter-name
+Checks that no parameter name starts with 'disable', using positive naming (starting with 'enable') is recommended. See [Style: binary-parameters].
 
 Enabled by default: true
 
@@ -174,7 +218,7 @@ Enabled by default: false
 ### struct-union-name-style
 Checks that `struct` and `union` names use lower_snake_case naming convention and end with '_t'. See [Style: struct-union-conventions].
 
-Enabled by default: false
+Enabled by default: true
 
 ### typedef-enums
 Checks that a Verilog `enum` declaration is named using `typedef`. See [Style: typedef-enums].
@@ -183,6 +227,8 @@ Enabled by default: true
 
 ### typedef-structs-unions
 Checks that a Verilog `struct` or `union` declaration is named using `typedef`. See [Style: typedef-structs-unions].
+##### Parameters
+  * `allow_anonymous_nested` Default: `false`
 
 Enabled by default: true
 
@@ -195,6 +241,11 @@ Enabled by default: true
 Checks that unpacked dimension ranges are declared in big-endian order, `[0:N-1]` and when an unpacked dimension range is zero-based, `[0:N-1]`, the size is declared as `[N]` instead. See [Style: unpacked-ordering].
 
 Enabled by default: true
+
+### uvm-macro-semicolon
+Checks that no `uvm_* macro calls end with ';'. See [Verification-Style: uvm-macro-semicolon-convention].
+
+Enabled by default: false
 
 ### v2001-generate-begin
 Checks that there are no generate-begin blocks inside a generate region. See [Style: generate-constructs].
@@ -209,4 +260,4 @@ Enabled by default: true
 
 ## Version
 
-Generated on 2020-02-11 23:18:27 -0800 from [v0.0-201-g143e70b](https://github.com/mithro/verible/commit/143e70beedd6cb244e27d0b627e302953ec1b417)
+Generated on 2020-11-17 16:53:20 -0800 from [c22c870](https://github.com/google/verible/commit/c22c8702aae814c9141ccdaa83f451b3a9f65532)
