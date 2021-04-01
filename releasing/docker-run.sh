@@ -48,33 +48,36 @@ if [ -z "${BAZEL_CXXOPTS}" ]; then
 fi
 
 # Generate the Dockerfile
+OUT_DIR=${TARGET_OS}-${TARGET_VERSION}
+FB=${STAGE}.dockerfile
+F1=${TARGET_OS}/${TARGET_VERSION}/${FB}
+F2=${TARGET_OS}/common/${FB}
+F3=${FB}
 
-case "$TARGET_OS" in
-  ubuntu)
-    # Basic tools
-    mkdir -p ubuntu-${TARGET_VERSION}
-    sed "s#ubuntu:VERSION#ubuntu:${TARGET_VERSION}#g" ubuntu.dockerfile > ubuntu-${TARGET_VERSION}/Dockerfile
-    # Compiler
-    [ "$TARGET_VERSION" = xenial ] && _version="_$TARGET_VERSION" || _version=""
-    cat ubuntu${_version}_compiler.dockerstage >> ubuntu-${TARGET_VERSION}/Dockerfile
-    # Bazel
-    cat ubuntu_bazel.dockerstage >> ubuntu-${TARGET_VERSION}/Dockerfile
-  ;;
-  centos)
-    # Basic tools
-    mkdir -p centos-${TARGET_VERSION}
-    sed "s#centos:VERSION#centos:${TARGET_VERSION}#g" centos.dockerfile > centos-${TARGET_VERSION}/Dockerfile
-    # Compiler
-    [ "$TARGET_VERSION" = 8 ] && _version="_$TARGET_VERSION" || _version=""
-    cat centos${_version}_compiler.dockerstage >> centos-${TARGET_VERSION}/Dockerfile
-    # Bazel
-    [ "$TARGET_VERSION" = 6 ] && _version="_$TARGET_VERSION" || _version=""
-    cat centos${_version}_bazel.dockerstage >> centos-${TARGET_VERSION}/Dockerfile
-  ;;
-esac
+STAGES="compiler bazel gflags2man"
 
-# gflags2man
-cat gflags2man.dockerstage >> ${TARGET_OS}-${TARGET_VERSION}/Dockerfile
+mkdir $OUT_DIR
+sed "s#${TARGET_OS}:VERSION#${TARGET_OS}:${TARGET_VERSION}#g" ${TARGET_OS}.dockerfile > ${OUT_DIR}/Dockerfile
+for STAGE in compiler bazel; do
+	if [ -e $F1 ]; then
+		echo "Using version override $F1"
+		cat $F1 >> ${OUT_DIR}/Dockerfile
+	elif [ -e $F2 ]; then
+		echo "Using OS override $F2"
+		cat $F2 >> ${OUT_DIR}/Dockerfile
+	elif [ -e $F3 ]; then
+		echo "Using top file $F3"
+		cat $F3 >> ${OUT_DIR}/Dockerfile
+	else
+		echo "Unable to find ${STAGE} for ${TARGET_OS} version ${TARGET_VERSION}"
+		echo
+		echo "Tried:"
+		echo " $F1"
+		echo " $F2"
+		echo " $F3"
+		exit 1
+	fi
+done
 
 # ==================================================================
 
